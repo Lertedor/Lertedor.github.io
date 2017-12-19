@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Website</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="BackgroundVideo.mp4" type="video/mp4">
+</video>
+
+
+<div class="Head">
+<div class="Title">
+<h1 style="text-align:left;float:left;">Lertedor</h1>
+<div class="content">
+<input type="button" value="Home" class="button" onclick="location.href='index.html'" />
+<input type="button" value="About" class="button" onclick="location.href='About.html'" />
+<input type="button" value="News" class="button" onclick="location.href='News.html'" />
+<input type="button" value="Download" class="button" onclick="location.href='Download.html'" />
+</div>
+</div>
+
+
+</div>
+
+<div class="fade">
+
+<div class="main">
+<br><br><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f6_svlgrTUg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<br>
+Home<br>
+Napoleon föddes 1769 på Korsika. Modern hette Laetita Ramolino och härstammade från den korsikanska adelssläkten Ramolino. Hon födde tretton barn, varav åtta blev vuxna. Hennes man Carlo Bonaparte var aktiv inom den korsikanska motståndsrörelsen vid Napoleons födelse, men övergav denna och anslöt sig till fransmännen, vilket belönades med att han blev ledamot i ständerförsamlingen i Versailles. Han avled vid trettionio års ålder, vilket gjorde Letizia till änka vid trettiofem års ålder. Familjen talade italienska och hade italienska namn, vilka senare förfranskades. Napoleon kallades följaktligen för Nabulione under sin barndom (och Rabulione när han var olydig, vilket Herman Lindqvist har översatt till "den som är överallt, river ner allting och blandar sig i allting"), och släkten hette Buonaparte, inte Bonaparte som senare.[2] Buonaparte och Ramolino var bland de mest kända av Korsikas dåvarande sjuttiosju adelsfamiljer. En annan framträdande familj var Pozzo di Borgo, som var Napoleons familjs främsta rivaler.
+</div>
+
+</div>
+
+<audio preload="auto" src="Rise.mp3" loop="true" autobuffer>
+Unsupported in Firefox
+</audio>
+
+<script>
+
+function setCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+
+function getCookie(c_name)
+{
+    var i,x,y,ARRcookies=document.cookie.split(";");
+    for (i=0;i<ARRcookies.length;i++)
+    {
+      x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+      y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+      x=x.replace(/^\s+|\s+$/g,"");
+      if (x==c_name)
+        {
+        return unescape(y);
+        }
+      }
+}
+
+var song = document.getElementsByTagName('audio')[0];
+var played = false;
+var tillPlayed = getCookie('timePlayed');
+function update()
+{
+    if(!played){
+        if(tillPlayed){
+        song.currentTime = tillPlayed;
+        song.play();
+        played = true;
+        }
+        else {
+                song.play();
+                played = true;
+        }
+    }
+
+    else {
+    setCookie('timePlayed', song.currentTime);
+    }
+}
+setInterval(update,1000);
+</script>
+
+</body>
+
+</html>
